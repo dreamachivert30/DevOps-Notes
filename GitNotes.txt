@@ -1,0 +1,186 @@
+Version Control
+===============
+Git Application: It will remember all changes and push to remote repository.
+
+Remote Repositories: github/gitlab/bitbucket/azure repository
+
+git init: Initializing the git in that particular folder.
+---------
+Once we initialize the git, ".git/" floder will create. This folder hold all the changes.
+
+git status: This will show the tracked and un tracked files.
+-----------
+
+git rm: remove the file names in the git hub.
+-------
+Ex:git rm --cached script.sh
+
+gitlog: This will show the log information like commit id,author,date,time and etc.
+-------
+This will give the information too elobarately. Insted of this we can use below command also.
+git log --oneline
+git log --pretty
+
+git remote add "Repository Name"
+Ex:
+
+
+
+git commit: Add the git files to the repository(New or Updated files).
+-----------
+All commit record details will avilable.
+
+Note: If we want to remove any origion, we can use "git remote remove origion"
+If we want to add new repository, we can use below command
+git remote add origion https://github.com/dreamachivert30/DevOps.git
+
+To push the files to Remote server:
+git push origin master
+It will ask user name and password of the git account, once we given it will push all the files.
+You can refer in the github online.
+
+To add files and commit the files:
+git add . && git commit -m
+or
+git commit -am "Added for Odd Number Logic"
+
+Create Alias Name:
+-----------------
+alias one='git log --oneline'
+Note:In general alias name will be valid for only that session. In order make permanent we need to in "bashrc" file.
+This will be avilable in the root folder. This will execute, when we start the session
+
+git pull: To sync with repository
+
+Branches: Copy of the file from the root or master file.
+=========
+We acan create bracnhes in the github also, go to(By default) code-->Branch Master --> Drop down --> Enter the name
+	-->Click on Create Branch
+To download the branches:
+git clone -b Feature1 https://github.com/dreamachivert30/DevOps.git C:\Leela\Learning\Git\Leela
+
+To Check the Branches:
+git branch
+It will show the newly created branch
+
+To Remove the Branches:
+rmdir /Q /S  Leela
+git clone https://github.com/dreamachivert30/DevOps.git C:\Leela\Learning\Git\Leela
+
+To Check the Branches:
+git branch
+It will show the master branch
+
+Note: In general we wont create branches in the github.
+Either in command prompt or unix environment will create.
+Will just create copy of the msater file.
+-->Download the master branch
+git clone https://github.com/dreamachivert30/DevOps.git C:\Leela\Learning\Git\Leela
+-->To check the branches
+git branch
+--> Creating branch
+git branch hello
+--> To check the branches
+git branch
+--> By default it will refer to master branch, In order to change to other branch
+git checkout hello
+--> To check the branch status
+git branch
+-->To delete the branch
+git branch -D hello
+
+
+Other way to create the branches:
+git checkout -b Feature1
+Note: This will create new branch and refer the child branche directly
+Open the file
+code .
+Do the changes and save. For any changes we need to check
+git status
+To add and commit
+git add . && git commit -m "Added Function"
+
+Note: we can refer the file changes in the code level
+git checkout master
+git checkout Feature1
+
+Note: Here we have to push branches which we have created.
+
+To clone:
+=========
+git clone -b Feature1 https://github.com/dreamachivert30/DevOps.git
+
+Note:
+Currently we have 3 branches in the system
+1. Master
+2. Based on the master we have created one more branch("win_branch")
+3. Based on the win_branch we have created one more branch "ubantu_branch"
+4. Now final version is the correct, so we have to merge the win_branch and ubantu_branch
+
+In order to merge those 2 files, we need to raise the pull request in the github.
+Go to particular branch(ubantu_branch) and click on the Compare & Pull request, we need to give the source and destination version.
+--> Click on the Create Pull Request Button.
+--> It will go for the approval.
+--> Based on the quality either we can approve or reject.
+--> Click on Pull request --> Confirm Merge(Once the merge is complete, it will show:Pull request successfully merged and closed)
+--> Once you clicked on the Delete branch "ubantu_branch" will get delete.
+--> In order to check the code, will go to commits.
+
+When will raise the Pull Requests??
+Whenever we are sending code changes for approval will raise the Pull Requests else will directly merge the code.
+
+To Setting up the keys:
+ssh-keygen
+Open the Public Key:
+cat /root/.ssh/id_rsa.pub
+-->Go to GitHub-->Settings-->Deploy Keys-->Add Keys-->Copy and paste the key 
+-->Give some name and enable the Allow Write Access and Click on add key.
+
+Merge the files locally:
+-->Remove the existing repository
+rm -rf DevOps/
+Clone the repository using ssh:
+git clone git@github.com:dreamachivert30/DevOps.git
+Move to DevOps/(Repository)
+-->Check for the branches
+-->Create new branch
+git checkout -b branch2
+--> Do the required code changes
+git status
+git add . && git commit -m "Added another function"
+-->In order to merge the files, first we have to connect to master
+git checkout master
+-->Then we have to merger
+git merge branch2
+-->Merging is completed, Need to push the files to github
+git push origin master
+Note:This time it wont ask the password, because we have already Added the key in github.
+For the confirmation purpose we can check the file changes in the github.
+Once the merge is completed, we have to delete our branch("branch2")
+git branch -D branch2
+git branch
+
+
+Note:
+Need to check more about the difference between, merge and rebase.
+Merge: Merging two branches(Not changing the base file)
+Rebase: Merging two branches(Changing the base file)
+
+git stash command: Just saving the file not commiting.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
